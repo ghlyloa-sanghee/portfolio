@@ -73,6 +73,39 @@
           </div>
         </div>
       </section>
+      <section class="tabs-section">
+        <h2>스킬</h2>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="design">디자인</button>
+          <button class="tab-btn" data-tab="publish">퍼블리싱</button>
+          <button class="tab-btn" data-tab="dev">개발</button>
+        </div>
+
+        <div class="tab-content active" id="design">
+          <ul>
+            <li>Figma — UI/UX 디자인</li>
+            <li>디자인 시스템 구축</li>
+            <li>프로토타이핑</li>
+          </ul>
+        </div>
+
+        <div class="tab-content" id="publish">
+          <ul>
+            <li>HTML5 시맨틱 마크업</li>
+            <li>CSS Flexbox / Grid</li>
+            <li>반응형 웹 구현</li>
+          </ul>
+        </div>
+
+        <div class="tab-content" id="dev">
+          <ul>
+            <li>JavaScript 기초</li>
+            <li>Git / GitHub</li>
+            <li>배포 (GitHub Pages)</li>
+          </ul>
+        </div>
+      </section>
     </main>
     <footer><p>© 2026 이상희</p></footer>
   </body>
@@ -82,6 +115,25 @@
     btn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
       btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+
+    // 탭 버튼 전부 찾기
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // 모든 버튼 · 컨텐츠에서 active 제거
+        tabBtns.forEach((b) => b.classList.remove("active"));
+        tabContents.forEach((c) => c.classList.remove("active"));
+
+        // 클릭한 버튼에 active 추가
+        btn.classList.add("active");
+
+        // 해당하는 컨텐츠에 active 추가
+        const target = btn.dataset.tab;
+        document.getElementById(target).classList.add("active");
+      });
     });
   </script>
 </html>
