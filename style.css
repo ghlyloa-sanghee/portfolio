@@ -24,14 +24,14 @@
   --color-Neutral-700: #333;
   --color-Neutral-black: #111;
 
-  --color-muted: #666;
-  --color-border: #ccc;
-  --color-surface: #f9fafb;
-  --color-border: #e5e5e5;
-
   /* 라이트모드 (기본) */
   --color-bg: #ffffff;
   --color-text: #1a1a1a;
+
+  --color-muted: #6b7280;
+  --color-border: #ccc;
+  --color-surface: #f9fafb;
+  --color-border: #e5e5e5;
 }
 
 /* 다크모드 */
@@ -41,7 +41,6 @@
 
   --color-bg: #111827;
   --color-surface: #1f2937;
-  --color-text: #f9fafb;
   --color-muted: #9ca3af;
   --color-border: #374151;
 }
