@@ -16,6 +16,7 @@
           <a href="#">소개</a>
           <a href="#">작업물</a>
         </nav>
+        <button class="theme-btn" id="themeBtn">🌙</button>
       </div>
     </header>
     <main>
@@ -69,4 +70,12 @@
     </main>
     <footer><p>© 2026 이상희</p></footer>
   </body>
+  <script>
+    const btn = document.getElementById("themeBtn");
+
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+  </script>
 </html>

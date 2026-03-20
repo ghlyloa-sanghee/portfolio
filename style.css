@@ -1,33 +1,64 @@
 :root {
-  --sr-color-primary-main: #4d334b;
-  --sr-color-primary-sub: #5e0036;
-  --sr-color-primary-black: #000000;
-  --sr-color-primary-siver: #a7a9ac;
-  --sr-color-primary-gold: #bda660;
+  --color-primary-main: #4d334b;
+  --color-primary-sub: #5e0036;
+  --color-primary-black: #000000;
+  --color-primary-siver: #a7a9ac;
+  --color-primary-gold: #bda660;
 
-  --sr-color-secondary-purple-medium: #572b4c;
-  --sr-color-secondary-purple-light: #76546d;
-  --sr-color-secondary-red-dark: #80283c;
-  --sr-color-secondary-red-light: #e0292c;
-  --sr-color-secondary-pink-dark: #6f135e;
-  --sr-color-secondary-pink-medium: #a43f8b;
-  --sr-color-secondary-magenta: #b32a73;
-  --sr-color-secondary-turquoise: #2e8282;
+  --color-secondary-purple-medium: #572b4c;
+  --color-secondary-purple-light: #76546d;
+  --color-secondary-red-dark: #80283c;
+  --color-secondary-red-light: #e0292c;
+  --color-secondary-pink-dark: #6f135e;
+  --color-secondary-pink-medium: #a43f8b;
+  --color-secondary-magenta: #b32a73;
+  --color-secondary-turquoise: #2e8282;
 
-  --sr-color-Neutral-white: #fff;
-  --sr-color-Neutral-100: #f3f3f3;
-  --sr-color-Neutral-200: #ddd;
-  --sr-color-Neutral-300: #ccc;
-  --sr-color-Neutral-400: #b2b2b2;
-  --sr-color-Neutral-500: #767676;
-  --sr-color-Neutral-600: #555;
-  --sr-color-Neutral-700: #333;
-  --sr-color-Neutral-black: #111;
+  --color-Neutral-white: #fff;
+  --color-Neutral-100: #f3f3f3;
+  --color-Neutral-200: #ddd;
+  --color-Neutral-300: #ccc;
+  --color-Neutral-400: #b2b2b2;
+  --color-Neutral-500: #767676;
+  --color-Neutral-600: #555;
+  --color-Neutral-700: #333;
+  --color-Neutral-black: #111;
 
-  --color-text: #111;
   --color-muted: #666;
   --color-border: #ccc;
-  --color-bg: #f5f5f5;
+  --color-surface: #f9fafb;
+  --color-border: #e5e5e5;
+
+  /* 라이트모드 (기본) */
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+}
+
+/* 다크모드 */
+.dark {
+  --color-bg: #1a1a1a;
+  --color-text: #ffffff;
+
+  --color-bg: #111827;
+  --color-surface: #1f2937;
+  --color-text: #f9fafb;
+  --color-muted: #9ca3af;
+  --color-border: #374151;
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.theme-btn :hover {
+  border-color: var(--color-primary-main);
 }
 
 * {
@@ -37,9 +68,13 @@
 }
 body {
   font-family: "pretendard";
+  background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   width: 100%;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* 헤더 */
@@ -85,8 +120,8 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--sr-color-primary-main);
-  border-bottom-color: var(--sr-color-primary-maincolor-primary);
+  color: var(--color-primary-main);
+  border-bottom-color: var(--color-primary-maincolor-primary);
 }
 
 /* 메인 */
@@ -128,7 +163,7 @@ li {
 
 .card {
   flex: 1;
-  background: var(--sr-color-Neutral-white);
+  background: var(--color-Neutral-white);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 28px;
@@ -183,8 +218,8 @@ li {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: var(--sr-color-primary-main);
-  color: var(--sr-color-Neutral-white);
+  background: var(--color-primary-main);
+  color: var(--color-Neutral-white);
   font-size: 12px;
   font-weight: 700;
   padding: 4px 10px;
