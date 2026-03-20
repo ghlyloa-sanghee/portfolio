@@ -233,3 +233,32 @@ footer {
     font-size: 13px;
   }
 }
+
+/* 애니메이션 정의 */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 적용 */
+.hero {
+  animation: fadeUp 2s ease both;
+}
+
+.hero h1 {
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero p {
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+
+.cards {
+  animation: fadeUp 0.7s 0.3s ease both;
+}
