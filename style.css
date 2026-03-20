@@ -166,11 +166,25 @@ li {
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
+  position: relative;
 }
 
 .work-item:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--sr-color-primary-main);
+  color: var(--sr-color-Neutral-white);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 1px;
 }
 
 .work-thumb {
