@@ -11,12 +11,20 @@
     <header>
       <div class="header-inner">
         <div class="logo">PortFolio</div>
-        <nav>
+        <nav id="mainNav">
           <a href="#">홈</a>
           <a href="#">소개</a>
           <a href="#">작업물</a>
+          <a href="#">연락</a>
         </nav>
-        <button class="theme-btn" id="themeBtn">🌙</button>
+        <div class="header-right">
+          <button class="theme-btn" id="themeBtn">🌙</button>
+          <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
     <main>
@@ -133,6 +141,22 @@
         // 해당하는 컨텐츠에 active 추가
         const target = btn.dataset.tab;
         document.getElementById(target).classList.add("active");
+      });
+    });
+
+    const hamburger = document.getElementById("hamburger");
+    const mainNav = document.getElementById("mainNav");
+
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("open");
+      mainNav.classList.toggle("open");
+    });
+
+    // 메뉴 링크 클릭하면 자동으로 닫기
+    mainNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("open");
+        mainNav.classList.remove("open");
       });
     });
   </script>
