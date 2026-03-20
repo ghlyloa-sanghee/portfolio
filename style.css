@@ -219,7 +219,7 @@ li {
   top: 12px;
   right: 12px;
   background: var(--color-primary-main);
-  color: var(--color-text);
+  color: #fff;
   font-size: 12px;
   font-weight: 700;
   padding: 4px 10px;
