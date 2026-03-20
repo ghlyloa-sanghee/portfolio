@@ -93,8 +93,7 @@ nav a:hover {
 main {
   max-width: 800px;
   margin: 60px auto;
-  padding: 0 40px;
-  padding-top: 80px;
+  padding: 80px 40px 0;
 }
 
 h1 {
@@ -257,7 +256,7 @@ footer {
     grid-template-columns: 1fr;
   }
   main {
-    padding: 0 20px;
+    padding: 80px 20px 0;
     margin: 40px auto;
   }
   h1 {
