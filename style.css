@@ -84,7 +84,7 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  background: #fff;
+  background: var(--color-bg);
   padding: 0 40px;
   border-bottom: 1px solid var(--color-border);
   height: 60px;
@@ -121,7 +121,7 @@ nav a {
 
 nav a:hover {
   color: var(--color-primary-main);
-  border-bottom-color: var(--color-primary-maincolor-primary);
+  border-bottom-color: var(--color-primary-main);
 }
 
 /* 메인 */
@@ -163,7 +163,7 @@ li {
 
 .card {
   flex: 1;
-  background: var(--color-Neutral-white);
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 28px;
@@ -219,7 +219,7 @@ li {
   top: 12px;
   right: 12px;
   background: var(--color-primary-main);
-  color: var(--color-Neutral-white);
+  color: var(--color-text);
   font-size: 12px;
   font-weight: 700;
   padding: 4px 10px;
@@ -239,7 +239,7 @@ li {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  color: var(--color-muted);
   display: flex;
   align-items: center;
   justify-content: center;
