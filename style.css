@@ -262,3 +262,9 @@ footer {
 .cards {
   animation: fadeUp 0.7s 0.3s ease both;
 }
+.works h2 {
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+.works-grid {
+  animation: fadeUp 0.7s 0.3s ease both;
+}
