@@ -193,11 +193,14 @@ li {
 
 .works-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 16px;
+  margin-top: 32px;
 }
 
 .work-item {
+  position: relative;
   border: 1px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
@@ -205,12 +208,23 @@ li {
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
-  position: relative;
+  background: var(--color-surface);
 }
 
 .work-item:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 대표 프로젝트 — 2칸 넓게 + 2행 높게 */
+.work-item.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* 가로로 넓은 카드 */
+.work-item.wide {
+  grid-column: span 2;
 }
 
 .badge {
@@ -227,11 +241,14 @@ li {
 }
 
 .work-thumb {
-  position: relative;
-  background: var(--color-bg);
-  height: 200px;
+  width: 100%;
+  height: 65%;
+  background: var(--color-border);
   transition: transform 0.4s ease;
-  overflow: hidden;
+}
+
+.work-item.featured .work-thumb {
+  height: 75%;
 }
 
 .overlay {
@@ -253,18 +270,18 @@ li {
 }
 
 .work-item:hover .work-thumb {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .work-item h3 {
-  font-size: 16px;
-  padding: 16px 20px 4px;
+  font-size: 15px;
+  padding: 14px 16px 4px;
 }
 
 .work-item p {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--color-muted);
-  padding: 0 20px 20px;
+  padding: 0 16px;
 }
 
 /* 푸터 */
@@ -287,8 +304,19 @@ footer {
     flex-direction: column;
   }
   .works-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
   }
+
+  .work-item.featured {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .work-item.wide {
+    grid-column: span 2;
+  }
+
   main {
     padding: 80px 20px 0;
     margin: 40px auto;
@@ -304,6 +332,18 @@ footer {
   }
   nav a {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .works-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  .work-item.featured,
+  .work-item.wide {
+    grid-column: span 1;
   }
 }
 
@@ -340,4 +380,39 @@ footer {
 }
 .works-grid {
   animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 60px 1fr 60px;
+  grid-template-areas: "header header" "sidebar content" "footer footer";
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+}
+.sidebar {
+  grid-area: sidebar;
+}
+.content {
+  grid-area: content;
+}
+.footer {
+  grid-area: footer;
+}
+/* 1번 열부터 3번 열까지 차지 */
+.item {
+  grid-column: 1 / 3;
+}
+
+/* 1번 행부터 3번 행까지 차지 */
+.item {
+  grid-row: 1 / 3;
+}
+
+/* 최소 250px, 자동으로 칸 수 결정 */
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
