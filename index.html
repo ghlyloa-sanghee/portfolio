@@ -218,10 +218,10 @@
     ];
 
     // HTML 자동생성
-    const worksGrid = document.getElementByID("worksGrid");
+    const worksGrid = document.getElementById("worksGrid");
 
     works.forEach((work) => {
-      const item = document.createElemet("div");
+      const item = document.createElement("div");
       item.className = "work-item" + work.type;
 
       item.innerHTML = `
