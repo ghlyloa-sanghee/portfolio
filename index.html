@@ -29,7 +29,7 @@
     </header>
     <main>
       <section class="hero">
-        <h1>안녕하세요,</h1>
+        <h1 id="greeting">안녕하세요,</h1>
         <p>만나서 반갑습니다.</p>
       </section>
       <section class="cards">
@@ -159,5 +159,22 @@
         mainNav.classList.remove("open");
       });
     });
+
+    //시간대별 인사말 함수
+    const getGreeting = () => {
+      const hour = new Date().getHours();
+
+      if (hour >= 6 && hour < 12) {
+        return "좋은 아침이에요 ☀️";
+      } else if (hour >= 12 && hour < 18) {
+        return "좋은 오후예요 🌤️";
+      } else if (hour >= 18 && hour < 22) {
+        return "좋은 저녁이에요 🌙";
+      } else {
+        return "늦게까지 작업 중이네요 🌑";
+      }
+    };
+    const greeting = document.getElementbyId("greeting");
+    greeting.textContent = getGreeting();
   </script>
 </html>
