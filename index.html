@@ -48,8 +48,8 @@
       </section>
       <section class="works">
         <h2>works</h2>
-        <div class="works-grid">
-          <div class="work-item">
+        <div class="works-grid" id="worksGrid">
+          <!-- <div class="work-item">
             <div class="work-thumb"><div class="overlay">자세히 보기</div></div>
             <span class="badge">NEW</span>
             <h3>프로젝트 1</h3>
@@ -78,7 +78,7 @@
             <span class="badge">NEW</span>
             <h3>프로젝트 5</h3>
             <p>모바일 앱 UI</p>
-          </div>
+          </div> -->
         </div>
       </section>
       <section class="tabs-section">
@@ -176,5 +176,64 @@
     };
     const greeting = document.getElementById("greeting");
     greeting.textContent = getGreeting();
+
+    //작업물 데이터
+    const works = [
+      {
+        title: "대표 프로젝트",
+        desc: "UI/UX 디자인 + 퍼블리싱",
+        badge: "FEATURED",
+        type: "featured",
+      },
+      {
+        title: "프로젝트 2",
+        desc: "웹 퍼블리싱",
+        badge: "NEW",
+        type: "",
+      },
+      {
+        title: "프로젝트 3",
+        desc: "랜딩페이지",
+        badge: "",
+        type: "",
+      },
+      {
+        title: "프로젝트 4",
+        desc: "디자인 시스템",
+        badge: "",
+        type: "wide",
+      },
+      {
+        title: "프로젝트 5",
+        desc: "모바일 앱 UI",
+        badge: "",
+        type: "",
+      },
+      {
+        title: "프로젝트 6",
+        desc: "나만의 프로젝트",
+        badge: "NEW",
+        type: "",
+      },
+    ];
+
+    // HTML 자동생성
+    const worksGrid = document.createElementByID("worksGrid");
+
+    works.forEach((work) => {
+      const item = document.createElemet("div");
+      item.className = "work-item" + work.type;
+
+      item.innerHTML = `
+    <div class="work-thumb">
+      <div class="overlay">자세히 보기</div>
+    </div>
+    ${work.badge ? `<span class="badge">${work.badge}</span>` : ""}
+    <h3>${work.title}</h3>
+    <p>${work.desc}</p>
+  `;
+
+      worksGrid.appendChild(item);
+    });
   </script>
 </html>
