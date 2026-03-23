@@ -114,6 +114,15 @@
           </ul>
         </div>
       </section>
+      <section class="memo-section">
+        <h2>메모</h2>
+        <p class="memo-desc">새로고침해도 저장돼요</p>
+        <textarea name="" id="memo" placeholder="여기에 메모를 입력하세요..."></textarea>
+        <div class="memo-actions">
+          <button id="memoSave">저장</button>
+          <button id="memoClear">지우기</button>
+        </div>
+      </section>
     </main>
     <footer><p>© 2026 이상희</p></footer>
   </body>
@@ -225,15 +234,40 @@
       item.className = "work-item " + work.type;
 
       item.innerHTML = `
-    <div class="work-thumb">
-      <div class="overlay">자세히 보기</div>
-    </div>
-    ${work.badge ? `<span class="badge">${work.badge}</span>` : ""}
-    <h3>${work.title}</h3>
-    <p>${work.desc}</p>
-  `;
+      <div class="work-thumb">
+        <div class="overlay">자세히 보기</div>
+      </div>
+      ${work.badge ? `<span class="badge">${work.badge}</span>` : ""}
+      <h3>${work.title}</h3>
+      <p>${work.desc}</p>
+    `;
 
       worksGrid.appendChild(item);
+    });
+
+    const memo = document.getElementById("memo");
+    const memoSave = document.getElementById("memoSave");
+    const memoClear = document.getElementById("memoClear");
+
+    // 페이지 로드시 저장된 메모 불러오기
+    const savedMemo = localStorage.getItem("memo");
+    if (savedMemo) {
+      memo.value = savedMemo;
+    }
+
+    // 저장 버튼
+    memoSave.addEventListener("click", () => {
+      localStorage.setItem("memo", memo.value);
+      memoSave.textContent = "저장됐어요 ✓";
+      setTimeout(() => {
+        memoSave.textContent = "저장";
+      }, 1500);
+    });
+
+    // 지우기 버튼
+    memoClear.addEventListener("click", () => {
+      memo.value = "";
+      localStorage.removeItem("memo");
     });
   </script>
 </html>
