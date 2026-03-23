@@ -102,7 +102,7 @@ header {
   color: var(--color-text);
 }
 
-nav {
+#mainNav {
   display: flex;
   gap: 32px;
 }
